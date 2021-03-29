@@ -4,6 +4,8 @@ import torch.nn.functional as F
 
 class EmbeddingTUBerlin(nn.Module):
     def __init__(self, args, emb_size):
+        ''' In this network the input image is supposed to be 256x256 '''
+
         super(EmbeddingTUBerlin, self).__init__()
         self.emb_size = emb_size
         self.nef = 64

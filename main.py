@@ -19,6 +19,10 @@ if (args.dataset == 'tuberlin'):
     images = glob.glob("./TUBerlin/train/airplane/1.png")
     for image in images:
         img = Image.open(image)
+        basewidth = 256
+        wpercent = (basewidth / float(img.size[0]))
+        hsize = int((float(img.size[1]) * float(wpercent)))
+        img = img.resize((basewidth, hsize), Image.ANTIALIAS)
         img = transforms.ToTensor()(img).unsqueeze(0)
         enc_nn.eval()
         out = enc_nn(img)
