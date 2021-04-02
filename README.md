@@ -14,7 +14,7 @@ python3 main.py --dataset miniquickdraw
 * 161 classi train
 * 41 validation
 * 48 test
-* Formato .png dimensione originale 1111x1111 8-bit
+* Formato .png dimensione 84x84 8-bit
 
 ### MiniQuickDraw
 * Sottoinsieme delle 50 milioni di immagini di Google QuickDraw! ricavabile tramite il codice presente in DataUtils
