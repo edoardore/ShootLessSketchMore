@@ -31,6 +31,7 @@ def generate_dataset(rawdata_root="Data", target_root="MiniQuickDraw", max_sampl
 
     # initialize variables
     x = np.empty([0, 784])
+    z = np.empty([0, 784])
     y = np.empty([0])
     class_names = []
     class_samples_num = []
@@ -62,26 +63,14 @@ def generate_dataset(rawdata_root="Data", target_root="MiniQuickDraw", max_sampl
 
     print("\n" + "*" * 50)
     print("Data loading done.")
-    print("*" * 50)
 
     x_train = x[0:21000, :]
     y_train = y[0:21000]
+    w_train = x[0:21000, :]
 
-    x_val = x[21000:26400, :]
-    y_val = y[21000:26400]
-
-    x_test = x[26400:x.shape[0], :]
-    y_test = y[26400:y.shape[0]]
-
-    # save the data into disk, this will make loading process much
-    # quicker later.
-
-    print("x_train size: ")
-    print(x_train.shape)
-    print("\nx_val size: ")
-    print(x_val.shape)
-    print("\nx_test size: ")
-    print(x_test.shape)
+    x_test = x[21000:x.shape[0], :]
+    y_test = y[21000:y.shape[0]]
+    w_test = x[21000:x.shape[0], :]
 
     if show_imgs:
         plt.figure('random images from dataset')
@@ -104,13 +93,10 @@ def generate_dataset(rawdata_root="Data", target_root="MiniQuickDraw", max_sampl
         plt.title(class_names[int(y_train[idx].item())])
         plt.show()
 
-    np.savez_compressed(target_root + "/train", data=x_train,
+    np.savez_compressed(target_root + "/train", data1=x_train, data2=w_train,
                         target=y_train)
 
-    np.savez_compressed(target_root + "/val", data=x_val,
-                        target=y_val)
-
-    np.savez_compressed(target_root + "/test", data=x_test,
+    np.savez_compressed(target_root + "/test", data1=x_test, data2=w_test,
                         target=y_test)
 
     print("*" * 50)
