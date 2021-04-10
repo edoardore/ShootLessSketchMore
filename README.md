@@ -1,5 +1,7 @@
 # ShootLessSketchMore
-DDM Project
+* Progetto di Data and Document Mining. 
+* Realizzazione di una rete Siamese che permetta di eseguire il Few-shot Learning, nello specifico One-Shot learning con N-Way variabile.
+
 
 
 ## Come eseguire il codice
