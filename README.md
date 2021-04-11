@@ -25,6 +25,8 @@ python3 evaluation.py --dataset tuberlin
 * Binary Cross Entropy Loss with Logits
 * Epoche di addestramento modificabili in config.py
 * A termine esecuzione salva il modello addestrato e mostra i grafici con l'andamento della loss
+![loss plot](https://github.com/edoardore/ShootLessSketchMore/blob/main/Schermata%20da%202021-04-11%2015-59-38.png)
+
 
 ### evaluation.py
 * Carica il modello addestrato precedentemente (file .pt)
