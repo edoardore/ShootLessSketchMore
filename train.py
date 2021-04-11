@@ -5,6 +5,7 @@ import config
 from dataset import SiameseDataset
 from torch.utils.data import DataLoader
 from models import EmbeddingTUBerlin, EmbeddingMiniQuickDraw
+from matplotlib import pyplot as plt
 
 parser = argparse.ArgumentParser(description='Few-Shot Learning with Siamese Network')
 parser.add_argument('--dataset', type=str, default='miniquickdraw', metavar='N', help='tuberlin/miniquickdraw')
@@ -49,6 +50,7 @@ for epoch in range(config.epochs):
     avg_train_loss = running_loss / len(train_dataloader)
     train_losses.append(avg_train_loss)
     val_running_loss = 0.0
+    # check validation loss after every epoch
     with torch.no_grad():
         net.eval()
         for img1, img2, label in val_dataloader:
@@ -63,5 +65,9 @@ for epoch in range(config.epochs):
         torch.save(net.state_dict(), model_name)
         print("Saving best model!")
 print("Finished Training")
+plt.plot(range(1, len(train_losses) + 1), train_losses, label='Train Losses')
+plt.plot(range(1, len(val_losses) + 1), val_losses, label='Validation Losses')
+plt.legend()
+plt.show()
 print(train_losses)
 print(val_losses)
