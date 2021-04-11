@@ -24,7 +24,7 @@ python3 evaluation.py --dataset tuberlin
 * Ottimizzatore Adam con learning rate 10^-3
 * Binary Cross Entropy Loss with Logits
 * Epoche di addestramento modificabili in config.py
-* A termine esecuzione salva il modello addestrato e mostra i grafici con l'andamento della loss
+* A termine esecuzione salva il modello addestrato e mostra i grafici con l'andamento della loss (Esempio seguente di un train in 15 epoche con un sottoinseme del dataset Mini Quick Draw)
 ![loss plot](https://github.com/edoardore/ShootLessSketchMore/blob/main/Schermata%20da%202021-04-11%2015-59-38.png)
 
 
