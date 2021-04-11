@@ -19,6 +19,8 @@ python3 evaluation.py --dataset tuberlin
 ### train.py
 * Addestra una Siamese Net che prende in input dal data loader due immagini con label 0 se di classi differenti o label 1 viceversa
 * Rete per classificazione binaria
+* Due immagini in input a due reti convoluzionali che condividono i pesi
+* Differenza in valore assoluto ---> layer fully connected ---> sigmoide che indica la similarità (rete in model.py)
 * Ottimizzatore Adam con learning rate 10^-3
 * Binary Cross Entropy Loss with Logits
 * Epoche di addestramento modificabili in config.py
