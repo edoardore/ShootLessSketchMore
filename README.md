@@ -12,8 +12,7 @@ python3 train.py --dataset miniquickdraw
 ```
 * Valutazione dell'accuratezza di predizione N-Way:
 ```shell
-python3 evaluation.py --dataset miniquickdraw
-python3 evaluation.py --dataset tuberlin
+python3 evaluation.py
 
 ````
 ### train.py
@@ -33,7 +32,7 @@ python3 evaluation.py --dataset tuberlin
 * Carica il modello addestrato precedentemente (file .pt)
 * Il data loader fornisce una immagine e un set di N-Way immagini di cui una della stessa classe della prima 
 * Inserendo nella rete addestrata l'immagine principale e una immagine del set alla volta si trova quella con similarità maggiore
-* Viene mostrata la performance di predizione nel task N-Way One-Shot mediata su 20 iterazioni
+* Viene mostrata la performance di predizione nel task N-Way One-Shot mediata su 10 iterazioni
 
 <img src="https://github.com/edoardore/ShootLessSketchMore/blob/main/fewShotExample.PNG" width="400">
 
