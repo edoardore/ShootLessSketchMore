@@ -29,15 +29,15 @@ class NWayOneShotEvalSetTUBerlin():
         while (int(self.train_df.iat[index, 2]) != 1):
             index = (index + np.random.randint(len(self.train_df))) % len(self.train_df)
 
-        main_path = os.path.join(self.train_dir, self.train_df.iat[index, 0]).rstrip("\n")
-        image_path = os.path.join(self.train_dir, self.train_df.iat[index, 1]).rstrip("\n")
+        main_path = os.path.join(self.train_dir, str(self.train_df.iat[index, 0]))
+        image_path = os.path.join(self.train_dir, str(self.train_df.iat[index, 1]))
 
         # getting the image path
         paths = []
         classes = []
         classes.append(image_path.split('/')[2])
         while len(paths) < self.nWay:
-            image1_path = os.path.join(self.train_dir, self.train_df.iat[index, 0]).rstrip("\n")
+            image1_path = os.path.join(self.train_dir, str(self.train_df.iat[index, 0]))
             index = (index + np.random.randint(len(self.train_df))) % len(self.train_df)
             clas = image1_path.split('/')
             if clas[2] not in classes:
@@ -68,11 +68,6 @@ def load_dataset(root, mtype):
 
     # load data from cache
     if os.path.exists(os.path.join(root, mtype + '.npz')):
-        print("*" * 50)
-        print("Loading " + mtype + " dataset...")
-        print("*" * 50)
-        print("Classes number of " + mtype + " dataset: " + str(num_classes))
-        print("*" * 50)
         data_cache = np.load(os.path.join(root, mtype + '.npz'))
         return data_cache["data1"].astype('float32'), data_cache["data2"].astype('float32'), data_cache[
             "target"].astype(
@@ -83,14 +78,12 @@ def load_dataset(root, mtype):
 
 
 class NWayOneShotEvalSetMiniQuickDraw():
-    def __init__(self, mtype, root='./DataUtils/MiniQuickDraw'):
+    def __init__(self, mtype, nWay, root='./DataUtils/MiniQuickDraw'):
         self.data1, self.data2, self.target, self.num_classes = load_dataset(root, mtype)
         self.data1 = torch.from_numpy(self.data1)
         self.data2 = torch.from_numpy(self.data2)
         self.target = torch.from_numpy(self.target)
-        self.nWay = config.nWay
-        print("Dataset " + mtype + " loading done.")
-        print("*" * 50 + "\n")
+        self.nWay = nWay
 
     def __getitem__(self, index):
         imm1 = self.data1[index]

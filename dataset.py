@@ -15,8 +15,8 @@ class SiameseDataset():
 
     def __getitem__(self, index):
         # getting the image path
-        image1_path = os.path.join(self.train_dir, self.train_df.iat[index, 0]).rstrip("\n")
-        image2_path = os.path.join(self.train_dir, self.train_df.iat[index, 1]).rstrip("\n")
+        image1_path = os.path.join(self.train_dir, str(self.train_df.iat[index, 0]))
+        image2_path = os.path.join(self.train_dir, str(self.train_df.iat[index, 1]))
         # Loading the image
         img0 = Image.open(image1_path)
         basewidth = 105

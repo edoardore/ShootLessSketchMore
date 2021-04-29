@@ -1,4 +1,5 @@
 import argparse
+
 import torch
 from DataUtils import load_data
 import config
@@ -8,7 +9,7 @@ from models import EmbeddingTUBerlin, EmbeddingMiniQuickDraw
 from matplotlib import pyplot as plt
 
 parser = argparse.ArgumentParser(description='Few-Shot Learning with Siamese Network')
-parser.add_argument('--dataset', type=str, default='miniquickdraw', metavar='N', help='tuberlin/miniquickdraw')
+parser.add_argument('--dataset', type=str, default='tuberlin', metavar='N', help='tuberlin/miniquickdraw')
 args = parser.parse_args()
 
 print("Training model with " + args.dataset)
@@ -50,7 +51,6 @@ for epoch in range(config.epochs):
     avg_train_loss = running_loss / len(train_dataloader)
     train_losses.append(avg_train_loss)
     val_running_loss = 0.0
-    # check validation loss after every epoch
     with torch.no_grad():
         net.eval()
         for img1, img2, label in val_dataloader:
