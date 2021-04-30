@@ -1,6 +1,7 @@
 # ShootLessSketchMore
 * Progetto di Data and Document Mining. 
 * Siamese Network per Few-shot Learning, nello specifico One-Shot learning con N-Way modificabile
+![siamesenet](https://github.com/edoardore/ShootLessSketchMore/blob/main/Siamese.PNG)
 
 
 
@@ -47,6 +48,8 @@ for i, testImg in enumerate(imgSets):
         if pred == label:
             correct += 1
 ```
+* Output finale: performance di predizione per i due modelli in configurazione 2-Way, 5-Way, 10-Way
+![output](https://github.com/edoardore/ShootLessSketchMore/blob/main/Schermata%20da%202021-04-29%2009-01-46.png)
 ## Datasets utilizzati
 ### TUBerlin 
 * 161 classi train
