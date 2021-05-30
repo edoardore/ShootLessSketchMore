@@ -39,9 +39,10 @@ for dataset in datasets:
                 if pred == label:
                     correct += 1
                 count += 1
-                if count % 10 == 0:
-                    print('Accuracy on {}-Way: {}'.format(nWay, correct / count))
-                    results.append(correct/count)
+                if count % 12 == 0:
+                    acc=round(correct/count, 2)
+                    print('Accuracy on {}-Way: {}'.format(nWay, acc))
+                    results.append(acc)
                     break
 
 header = ['Datasets:', '2-Way', '5-Way', '10-Way']
