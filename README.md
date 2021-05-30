@@ -49,7 +49,7 @@ for i, testImg in enumerate(imgSets):
             correct += 1
 ```
 * Output finale: performance di predizione per i due modelli in configurazione 2-Way, 5-Way, 10-Way
-![output](https://github.com/edoardore/ShootLessSketchMore/blob/main/Schermata%20da%202021-05-11%2017-30-57.png)
+![output](https://github.com/edoardore/ShootLessSketchMore/blob/main/Schermata%20da%202021-05-30%2013-28-23.png)
 ## Datasets utilizzati
 ### TUBerlin 
 * 161 classi train
