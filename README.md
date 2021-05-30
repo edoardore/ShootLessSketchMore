@@ -33,7 +33,7 @@ python3 evaluation.py
 * Carica il modello addestrato precedentemente (file .pt)
 * Il data loader fornisce una immagine e un set di N-Way immagini di cui una della stessa classe della prima 
 * Inserendo nella rete addestrata l'immagine principale e una immagine del set alla volta si trova quella con similarità maggiore
-* Viene mostrata la performance di predizione nel task N-Way One-Shot mediata su 10 iterazioni
+* Viene mostrata la performance di predizione nel task N-Way One-Shot mediata su 12 iterazioni
 
 <img src="https://github.com/edoardore/ShootLessSketchMore/blob/main/fewShotExample.PNG" width="400">
 
